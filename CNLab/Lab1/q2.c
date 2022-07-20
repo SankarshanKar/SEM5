@@ -8,9 +8,9 @@
 };
  void func(struct info *record)
 {
-    printf(" roll_no is: %d \n", record->roll_no);
-    printf(" Name is: %s \n", record->name);
-    printf(" Percentage is: %f \n", record->cgpa);
+    printf("Roll no is: %d \n", record->roll_no);
+    printf("Name is: %s \n", record->name);
+    printf("Percentage is: %f \n", record->cgpa);
 } 
 int main() 
 {
