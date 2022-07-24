@@ -1,6 +1,15 @@
 #include <iostream>
 using namespace std;
 
+void userInput(int arr[], int n)
+{
+    cout << "Enter array elements: " << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+}
+
 int duplicate(int arr[], int n)
 {
     int d = 0;
@@ -18,8 +27,13 @@ int duplicate(int arr[], int n)
     return d;
 }
 
-int mostDuplicate(int arr[], int n)
+void mostDuplicate(int arr[], int n)
 {
+    if(duplicate(arr, n) == 0)
+    {
+        cout<<"Most repeated element is: None"<<endl;
+        return;
+    }
     int d;
     int maxEle;
     int max = 0;
@@ -48,11 +62,7 @@ int main()
     cout << "Enter value of n:" << endl;
     cin >> n;
     int arr[n];
-    cout << "Enter array elements: " << endl;
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
+    userInput(arr, n);
 
     cout << "total number of duplicates=" << duplicate(arr, n) << endl;
     mostDuplicate(arr, n);
