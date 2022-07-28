@@ -35,7 +35,7 @@ int countNonZero(int arr[][C])
     {
         for(int j = 0; j < C; j++)
         {
-            if(arr[i][j] == 0)
+            if(arr[i][j] != 0)
             {
                 count++;
             }
