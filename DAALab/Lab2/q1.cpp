@@ -81,12 +81,16 @@ void checkPrimeThree(int num)
 int main()
 {
     int num;
-    cout<<"Enter number: ";
-    cin>>num;
+    for(int i = 0; i < 10; i++)
+    {
+        cout<<"Enter number: ";
+        cin>>num;
 
-    checkPrimeOne(num);
-    checkPrimeTwo(num);
-    checkPrimeThree(num);
+        checkPrimeOne(num);
+        checkPrimeTwo(num);
+        checkPrimeThree(num);
+        cout<<endl;
+    }
 
     return 0;
 }

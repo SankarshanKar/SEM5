@@ -1,0 +1,79 @@
+Enter number: 11
+11 is Prime
+No. of steps: 9
+11 is Prime
+No. of steps: 4
+11 is Prime
+No. of steps: 2
+
+Enter number: 13
+13 is Prime
+No. of steps: 11
+13 is Prime
+No. of steps: 5
+13 is Prime
+No. of steps: 2
+
+Enter number: 17
+17 is Prime
+No. of steps: 15
+17 is Prime
+No. of steps: 7
+17 is Prime
+No. of steps: 3
+
+Enter number: 19
+19 is Prime
+No. of steps: 17
+19 is Prime
+No. of steps: 8
+19 is Prime
+No. of steps: 3
+
+Enter number: 23
+23 is Prime
+No. of steps: 21
+23 is Prime
+No. of steps: 10
+23 is Prime
+No. of steps: 3
+
+Enter number: 31
+31 is Prime
+No. of steps: 29
+31 is Prime
+No. of steps: 14
+31 is Prime
+No. of steps: 4
+
+Enter number: 37
+37 is Prime
+No. of steps: 35
+37 is Prime
+No. of steps: 17
+37 is Prime
+No. of steps: 5
+
+Enter number: 67
+67 is Prime
+No. of steps: 65
+67 is Prime
+No. of steps: 32
+67 is Prime
+No. of steps: 7
+
+Enter number: 101
+101 is Prime
+No. of steps: 99
+101 is Prime
+No. of steps: 49
+101 is Prime
+No. of steps: 9
+
+Enter number: 409
+409 is Prime
+No. of steps: 407
+409 is Prime
+No. of steps: 203
+409 is Prime
+No. of steps: 19
