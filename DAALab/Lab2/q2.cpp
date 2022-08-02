@@ -20,6 +20,7 @@ int euclidAlgoGCD(int a, int b)
     int count = 0;
     while(a % b != 0)
     {
+        count++;
         rem = a % b;
         a = b;
         b = rem;
@@ -38,8 +39,8 @@ int consecutiveInteger(int a, int b)
         if(a % t == 0 || b % t == 0)
         {
             break;
-            t--;
         }
+        t--;
     }
     cout<<"No. of steps: "<<count<<endl;
     return t;
@@ -70,14 +71,9 @@ int middleSchool(int a, int b)
 int main()
 {
     int a, b;
-    for(int i = 0; i < 6; i++)
-    {
-        cout<<"Enter two numbers: ";
-        cin>>a>>b;
 
-        cout<<"GCD using Euclid's algorithm: "<<euclidAlgoGCD(a, b)<<endl;
-        cout<<"GCD using consecutive integers: "<<consecutiveInteger(a, b)<<endl;
-        cout<<"GCD using middleschool method: "<<middleSchool(a, b)<<endl;
-    }
+    cout<<middleSchool(100, 200)<<endl;
+    cout<<middleSchool(31415, 31425)<<endl;  
+
     return 0;
 }
