@@ -2,95 +2,75 @@
 #include<cmath>
 using namespace std;
 
-void checkPrimeOne(int num)
+#define size 10
+
+void userInput(int arr[])
 {
-    if(num == 0 || num == 1)
+    cout<<"Enter 10 numbers: "<<endl;
+    for(int i = 0; i < size; i++)
     {
-        return;
+        cin>>arr[i];
     }
-    int flag = 0;
+    cout<<endl;
+}
+
+int checkPrimeOne(int num)
+{
     int count = 0;
     for(int i = 2; i < num; i++)
     {
         count++;
         if(num % i == 0)
         {
-            flag = 1;
-            cout<<num<<" is Non prime"<<endl;
-            break;
+            return count;
         }
     }
-    if(flag == 0)
-    {
-        cout<<num<<" is Prime"<<endl;
-    }
-    cout<<"No. of steps: "<<count<<endl;
+    return count;
 }
 
-void checkPrimeTwo(int num)
+int checkPrimeTwo(int num)
 {
-    if(num == 0 || num == 1)
-    {
-        return;
-    }
-    int flag = 0;
     int count = 0;
     for(int i = 2; i <= num / 2; i++)
     {
         count++;
         if(num % i == 0)
         {
-            flag = 1;
-            cout<<num<<" is Non prime"<<endl;
-            break;
+            return count;
         }
     }
-    if(flag == 0)
-    {
-        cout<<num<<" is Prime"<<endl;
-    }
-    cout<<"No. of steps: "<<count<<endl;
-
+    return count;
 }
 
-void checkPrimeThree(int num)
+int checkPrimeThree(int num)
 {
-    if(num == 0 || num == 1)
-    {
-        return;
-    }
-    int flag = 0;
     int count = 0;
     for(int i = 2; i <= sqrt(num); i++)
     {
         count++;
         if(num % i == 0)
         {
-            flag = 1;
-            cout<<num<<" is Non prime"<<endl;
-            break;
+            return count;
         }
     }
-    if(flag == 0)
+    return count;
+}
+
+void display(int arr[])
+{
+    cout << "Input\t\t"<<"Algo 1\t\t"<<"Algo 2\t\t"<<"Algo 3"<<endl<< endl;
+    for(int i = 0; i < size; i++)
     {
-        cout<<num<<" is Prime"<<endl;
+        cout << arr[i] << "\t\t" << checkPrimeOne(arr[i]) << "\t\t" << checkPrimeTwo(arr[i]) << "\t\t" << checkPrimeThree(arr[i]) << endl;
     }
-    cout<<"No. of steps: "<<count<<endl;
 }
 
 int main()
 {
-    int num;
-    for(int i = 0; i < 10; i++)
-    {
-        cout<<"Enter number: ";
-        cin>>num;
+    int arr[size];
 
-        checkPrimeOne(num);
-        checkPrimeTwo(num);
-        checkPrimeThree(num);
-        cout<<endl;
-    }
+    userInput(arr);
+    display(arr);
 
     return 0;
 }
