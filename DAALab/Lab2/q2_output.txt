@@ -1,0 +1,22 @@
+Enter 6 test cases: 
+Test case 1: 
+31415 14142
+Test case 2: 
+56 32566
+Test case 3: 
+34218 56
+Test case 4: 
+12 15
+Test case 5: 
+31415 31415
+Test case 6: 
+12 12
+
+Input   Euclid's Algo   Consecutive Integer     Middle School
+
+31415           9               1               14144
+56              5               1               59
+34218           1               1               58
+12              2               1               14
+31415           0               1               31417
+12              0               1               14
