@@ -48,7 +48,7 @@ int consecutiveInteger(int a, int b)
     while(t != 0)
     {
         count++;
-        if(a % t == 0 || b % t == 0)
+        if(a % t == 0 && b % t == 0)
         {
             break;
         }
@@ -80,7 +80,7 @@ int middleSchool(int a, int b)
         {
             ans *= i;
         }
-        if(n == 1 || n == 1)
+        if(n == 1 || m == 1)
         {
             i--;
         }
