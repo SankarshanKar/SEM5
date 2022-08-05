@@ -1,45 +1,6 @@
 #include<iostream>
 using namespace std;
 
-// void insertionSort(int arr[], int size)
-// {
-//     for(int i = 0; i < size; i++)
-//     {
-//         int key = arr[i];
-//         int j = i - 1;
-//         while(j >= 0 && arr[j] > key)
-//         {
-//             arr[j + 1] = arr[j];
-//             j--;
-//         }
-//         arr[j + 1] = key;
-//     }
-// }
-
-// int elementCount(int arr[], int size)
-// {
-//     insertionSort(arr, size);
-//     int count = 1, stepCount = 0;
-//     for(int i = 1; i < size; i++)
-//     {
-//         stepCount++;
-//         if(arr[i] == arr[i - 1])
-//         {
-//             count++;
-//         }
-//         else
-//         {
-//             count = 1;
-//         }
-//         if(count > (size / 2))
-//         {
-//             cout<<arr[i]<<endl;
-//             return stepCount;
-//         }
-//     }
-//     return stepCount;
-// }
-
 int elementCount(int arr[], int size)
 {
     for (int i = 0; i < size; i++)
