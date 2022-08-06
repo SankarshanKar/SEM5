@@ -30,7 +30,7 @@ int min(int a, int b)
 int euclidAlgoGCD(int a, int b)
 {
     int rem;
-    int count = 0;
+    int count = 1;
     while(a % b != 0)
     {
         count++;
@@ -44,7 +44,7 @@ int euclidAlgoGCD(int a, int b)
 int consecutiveInteger(int a, int b)
 {
     int t = min(a, b);
-    int count = 0;
+    int count = 1;
     while(t != 0)
     {
         count++;
@@ -59,7 +59,7 @@ int consecutiveInteger(int a, int b)
 
 int middleSchool(int a, int b)
 {
-    int ans = 1, m = 0, n = 0, count = 0;
+    int ans = 1, m = 0, n = 0, count = 1;
     int t = min(a, b);
     for(int i = 2; i <= t; i++)
     {
