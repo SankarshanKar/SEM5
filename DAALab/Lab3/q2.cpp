@@ -47,7 +47,7 @@ int main()
     int arr[] = {2, 5, 2, 2, 9, 1, 2, 2, 2, 8};
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    cout<<elementCount(arr, size)<<endl<<endl;
+    cout<<elementCount(arr, size)<<endl;
 
     cout<<elementCountTwo(arr, size)<<endl;
     
