@@ -100,7 +100,12 @@ void displayTable()
     for(int i = 0; i < 10; i++)
     {
         int temp[sizes[i]];
-        cout << sizes[i] << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6) << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6) << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6) << endl;
+        fillArrayAscending(temp, sizes[i]);
+        cout << sizes[i] << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6);
+        fillArrayDescending(temp, sizes[i]);
+        cout << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6);
+        fillArrayRandom(temp, sizes[i]);
+        cout << "\t\t" << fixed << insertionSort(temp, sizes[i]) << setprecision(6) << endl;
     }
 }
 
