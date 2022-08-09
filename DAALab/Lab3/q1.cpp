@@ -79,23 +79,6 @@ void displayTable()
 {
     int sizes[10] = {5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000};
 
-    // for(int i = 0; i < 10; i++)
-    // {
-    //     int temp[sizes[i]];
-    //     cout<<"Sl No: "<<i + 1<<endl;
-        
-    //     cout<<"Time Complexity(Ascending array): ";
-    //     fillArrayAscending(temp, sizes[i]);
-    //     cout<<fixed<<insertionSort(temp, sizes[i])<<setprecision(6)<<endl;
-        
-    //     cout<<"Time Complexity(Descending array): ";
-    //     fillArrayDescending(temp, sizes[i]);
-    //     cout<<fixed<<insertionSort(temp, sizes[i])<<setprecision(6)<<endl;
-        
-    //     cout<<"Time Complexity(Random array): ";
-    //     fillArrayRandom(temp, sizes[i]);
-    //     cout<<fixed<<insertionSort(temp, sizes[i])<<setprecision(6)<<endl;
-    // }
     cout << "Input\t\t"<<"Algo 1\t\t"<<"Algo 2\t\t"<<"Algo 3"<<endl<< endl;
     for(int i = 0; i < 10; i++)
     {
