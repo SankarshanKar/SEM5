@@ -152,6 +152,7 @@ int main()
 
     cout << "Enter the size of array: ";
     cin >> size;
+    // cout<<"Test"<<endl;
     int arr[size];
 
     menu(arr, size);
