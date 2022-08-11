@@ -81,7 +81,7 @@ void displayTable()
 
     cout << "Input\t\t"
          << "TC (Ascending)\t\t"
-         << "TC Descending)\t\t"
+         << "TC (Descending)\t\t"
          << "TC (Random)" << endl
          << endl;
     for (int i = 0; i < 10; i++)
@@ -119,50 +119,56 @@ void menu(int arr[], int size)
         cin >> choice;
         switch (choice)
         {
-        case 0:
-            cout << "Quitting.." << endl;
-            break;
-        case 1:
-            fillArrayRandom(arr, size);
-            display(arr, size);
-            break;
+            case 0:
+                cout << "Quitting.." << endl;
+                break;
+            case 1:
+                fillArrayRandom(arr, size);
+                display(arr, size);
+                break;
 
-        case 2:
-            display(arr, size);
-            break;
+            case 2:
+                display(arr, size);
+                break;
 
-        case 3:
-            temp = insertionSort(arr, size);
-            display(arr, size);
-            break;
+            case 3:
+                temp = insertionSort(arr, size);
+                display(arr, size);
+                break;
 
-        case 4:
-            insertionSortDescending(arr, size);
-            display(arr, size);
-            break;
+            case 4:
+                insertionSortDescending(arr, size);
+                display(arr, size);
+                break;
 
-        case 5:
-            fillArrayRandom(arr, size);
-            cout << "Time complexity(Random array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
-            break;
+            case 5:
+                fillArrayRandom(arr, size);
+                cout << "Time complexity(Random): " 
+                     << fixed << insertionSort(arr, size) 
+                     << setprecision(6) << endl;
+                break;
 
-        case 6:
-            fillArrayAscending(arr, size);
-            cout << "Time complexity(Ascending array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
-            break;
+            case 6:
+                fillArrayAscending(arr, size);
+                cout << "Time complexity(Ascending): " 
+                     << fixed << insertionSort(arr, size) 
+                     << setprecision(6) << endl;
+                break;
 
-        case 7:
-            fillArrayDescending(arr, size);
-            cout << "Time complexity(Descending array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
-            break;
+            case 7:
+                fillArrayDescending(arr, size);
+                cout << "Time complexity(Descending): " 
+                     << fixed << insertionSort(arr, size) 
+                     << setprecision(6) << endl;
+                break;
 
-        case 8:
-            displayTable();
-            break;
+            case 8:
+                displayTable();
+                break;
 
-        default:
-            cout << "Invalid input\n";
-            break;
+            default:
+                cout << "Invalid input\n";
+                break;
         }
     } while (choice != 0);
 }
@@ -175,7 +181,7 @@ int main()
     cin >> size;
     int arr[size];
 
-    menu(arr, sizeof(arr) / sizeof(int));
+    menu(arr, size);
 
     return 0;
 }
