@@ -101,19 +101,21 @@ void menu(int arr[], int size)
     int choice;
     double temp;
 
+    fillArrayRandom(arr, size);
+
+    cout << "\n0. Quit. \n";
+    cout << "1. n Random numbers=> Array\n";
+    cout << "2. Display the array. \n";
+    cout << "3. Sort the array in Ascending order by using insertion sort. \n";
+    cout << "4. Sort the array in descending order by using any sorting method. \n";
+    cout << "5. Time complexity to sort ascending of random data. \n";
+    cout << "6. Time complexity to sort ascending of data already sorted in ascending order. \n";
+    cout << "7. Time complexity to sort ascending of data already sorted in descending order. \n";
+    cout << "8. Time complexity to sort ascending data for all cases \n(Data Ascending, Data in descending & Random Data) in Tabular form of values n=5000 to 50000, step=5000\n";
+        
     do
     {
-        cout << "\n0. Quit. \n";
-        cout << "1. n Random numbers=> Array\n";
-        cout << "2. Display the array. \n";
-        cout << "3. Sort the array in Ascending order by using insertion sort. \n";
-        cout << "4. Sort the array in descending order by using any sorting method. \n";
-        cout << "5. Time complexity to sort ascending of random data. \n";
-        cout << "6. Time complexity to sort ascending of data already sorted in ascending order. \n";
-        cout << "7. Time complexity to sort ascending of data already sorted in descending order. \n";
-        cout << "8. Time complexity to sort ascending data for all cases \n(Data Ascending, Data in descending & Random Data) in Tabular form of values n=5000 to 50000, step=5000\n";
-        
-        cout << "Enter choice: ";
+        cout << endl << "Enter choice: ";
         cin >> choice;
         switch (choice)
         {
@@ -122,6 +124,7 @@ void menu(int arr[], int size)
             break;
         case 1:
             fillArrayRandom(arr, size);
+            display(arr, size);
             break;
 
         case 2:
