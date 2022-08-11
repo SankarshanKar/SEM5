@@ -1,7 +1,7 @@
 #include <iostream>
-#include<iomanip>
+#include <iomanip>
 #include <time.h>
-#include<ctime>
+#include <ctime>
 using namespace std;
 
 void fillArrayAscending(int arr[], int size)
@@ -39,7 +39,7 @@ double insertionSort(int arr[], int size)
         int j = i - 1;
         while (j >= 0 && key < arr[j])
         {
-            
+
             arr[j + 1] = arr[j];
             j--;
         }
@@ -79,8 +79,12 @@ void displayTable()
 {
     int sizes[10] = {5000, 10000, 15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000};
 
-    cout << "Input\t\t"<<"Algo 1\t\t"<<"Algo 2\t\t"<<"Algo 3"<<endl<< endl;
-    for(int i = 0; i < 10; i++)
+    cout << "Input\t\t"
+         << "TC (Ascending)\t\t"
+         << "TC Descending)\t\t"
+         << "TC (Random)" << endl
+         << endl;
+    for (int i = 0; i < 10; i++)
     {
         int temp[sizes[i]];
         fillArrayAscending(temp, sizes[i]);
@@ -97,53 +101,67 @@ void menu(int arr[], int size)
     int choice;
     double temp;
 
-    while (choice != 0)
+    do
     {
+        cout << "\n0. Quit. \n";
+        cout << "1. n Random numbers=> Array\n";
+        cout << "2. Display the array. \n";
+        cout << "3. Sort the array in Ascending order by using insertion sort. \n";
+        cout << "4. Sort the array in descending order by using any sorting method. \n";
+        cout << "5. Time complexity to sort ascending of random data. \n";
+        cout << "6. Time complexity to sort ascending of data already sorted in ascending order. \n";
+        cout << "7. Time complexity to sort ascending of data already sorted in descending order. \n";
+        cout << "8. Time complexity to sort ascending data for all cases \n(Data Ascending, Data in descending & Random Data) in Tabular form of values n=5000 to 50000, step=5000\n";
+        
         cout << "Enter choice: ";
         cin >> choice;
         switch (choice)
         {
-            case 1:
-                fillArrayRandom(arr, size);
-                break;
+        case 0:
+            cout << "Quitting.." << endl;
+            break;
+        case 1:
+            fillArrayRandom(arr, size);
+            break;
 
-            case 2:
-                display(arr, size);
-                break;
+        case 2:
+            display(arr, size);
+            break;
 
-            case 3:
-                temp = insertionSort(arr, size);
-                display(arr, size);
-                break;
+        case 3:
+            temp = insertionSort(arr, size);
+            display(arr, size);
+            break;
 
-            case 4:
-                insertionSortDescending(arr, size);
-                display(arr, size);
-                break;
-            
-            case 5:
-                fillArrayRandom(arr, size);
-                cout<<"Time complexity(Random array): "<<fixed<<insertionSort(arr, size)<<setprecision(6)<<endl;
-                break;
+        case 4:
+            insertionSortDescending(arr, size);
+            display(arr, size);
+            break;
 
-            case 6:
-                fillArrayAscending(arr, size);
-                cout<<"Time complexity(Ascending array): "<<fixed<<insertionSort(arr, size)<<setprecision(6)<<endl;
-                break;
+        case 5:
+            fillArrayRandom(arr, size);
+            cout << "Time complexity(Random array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
+            break;
 
-            case 7:
-                fillArrayDescending(arr, size);
-                cout<<"Time complexity(Descending array): "<<fixed<<insertionSort(arr, size)<<setprecision(6)<<endl;
-                break;
+        case 6:
+            fillArrayAscending(arr, size);
+            cout << "Time complexity(Ascending array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
+            break;
 
-            case 8:
-                displayTable();
-                break;
+        case 7:
+            fillArrayDescending(arr, size);
+            cout << "Time complexity(Descending array): " << fixed << insertionSort(arr, size) << setprecision(6) << endl;
+            break;
 
-            default:
-                break;
+        case 8:
+            displayTable();
+            break;
+
+        default:
+            cout << "Invalid input\n";
+            break;
         }
-    }
+    } while (choice != 0);
 }
 
 int main()
@@ -155,7 +173,7 @@ int main()
     // cout<<"Test"<<endl;
     int arr[size];
 
-    menu(arr, size);
+    menu(arr, sizeof(arr) / sizeof(int));
 
     return 0;
 }

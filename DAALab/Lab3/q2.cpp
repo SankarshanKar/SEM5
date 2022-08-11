@@ -42,14 +42,34 @@ int elementCountTwo(int arr[], int size)
     return highest;
 }
 
+int checkCount(int arr[], int size, int num)
+{
+    int count = 0;
+    for(int i = 0; i < size; i++)
+    {
+        if(arr[i] == num)
+        {
+            count++;
+        }
+    }
+    if(count > (size / 2))
+    {
+        return num;
+    }
+    else
+    {
+        return -1;
+    }
+}
+
 int main()
 {
     int arr[] = {2, 5, 2, 2, 9, 1, 2, 2, 2, 8};
     int size = sizeof(arr) / sizeof(arr[0]);
 
-    cout<<elementCount(arr, size)<<endl;
+    cout<<"a:"<<elementCount(arr, size)<<endl;
 
-    cout<<elementCountTwo(arr, size)<<endl;
+    cout<<"b:"<<checkCount(arr, size, elementCountTwo(arr, size))<<endl;
     
     return 0;
 }
