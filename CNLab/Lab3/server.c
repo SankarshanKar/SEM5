@@ -10,13 +10,15 @@ void main()
 {
     int sockfd, fd1, length, i, x, y, sum;
     char buf[100], p[3];
+    
     struct
-        sockaddr_in sa,
-        ta1;
+        sockaddr_in sa, ta1;
+
     sockfd = socket(AF_INET, SOCK_STREAM, 0);
     sa.sin_family = AF_INET;
     sa.sin_addr.s_addr = INADDR_ANY;
     sa.sin_port = 60018;
+
     i = bind(sockfd, (struct sockaddr *)&sa, sizeof(sa));
     printf("test %d%d\n", sockfd, i);
 
