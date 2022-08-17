@@ -1,15 +1,6 @@
 #include<iostream>
 using namespace std;
 
-void fillArrayRandom(int arr[], int size, int seed)
-{
-    srand(seed);
-    for (int i = 0; i < size; i++)
-    {
-        arr[i] = rand() / 10000000;
-    }
-}
-
 int bubbleSort(int arr[], int size)
 {
 	int stepCount = 0;
@@ -42,39 +33,59 @@ int bubbleSortOptimized(int arr[], int size)
 	return stepCount;
 }
 
-void display(int arr[], int size)
+void printBubbleSort()
 {
-	for(int i = 0; i < size; i++)
-		cout<<arr[i]<<" ";
-
-	cout<<endl;
+	int sl = 0;
+    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
+    for (int n = 100; n <= 1000; n = n + 100)
+    {
+        int arr1[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr1[i] = i+1;
+        }
+        int bestCase = bubbleSort(arr1, n);
+        int arr2[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr2[i] = i;
+        }
+        int worstCase = bubbleSort(arr2, n);
+        
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
+    }
 }
 
-void printTable()
+void printBubbleSortOptimized()
 {
-	cout << "Sl No.\t\tBubble Sort\t\tBubble Sort (Optimized)" << endl;
-
-	for(int i = 0; i < 10; i++)
-	{
-		int size = (i + 1) * 1000;
-		int arr1[size];
-		int arr2[size];
-		
-		fillArrayRandom(arr1, size, i + 1);
-		for(int j = 0; j < size; j++)
-		{
-			arr2[j] = arr1[j];
-		}
-		
-		cout << "    " << i + 1 << "\t\t\t" << bubbleSort(arr1, size) << "\t\t\t" << bubbleSortOptimized(arr2, size) << endl;
-	}
-
-	cout<<endl;
+	int sl = 0;
+    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
+    for (int n = 100; n <= 1000; n = n + 100)
+    {
+        int arr1[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr1[i] = i+1;
+        }
+        int bestCase = bubbleSortOptimized(arr1, n);
+        int arr2[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr2[i] = i;
+        }
+        int worstCase = bubbleSortOptimized(arr2, n);
+        
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
+    }
 }
 
 int main()
 {
-	printTable();
+	cout<<"Bubble Sort: "<<endl;
+	printBubbleSort();
+
+	cout<<"Bubble Sort Optimised: "<<endl;
+	printBubbleSortOptimized();
 
 	return 0; 
 }

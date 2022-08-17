@@ -1,56 +1,112 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void display(int arr[], int size)
+int selectionSort(int arr[], int size)
 {
-    for(int i = 0; i < size; i++)
+    int stepCount = 0;
+    for (int i = 0; i < size - 1; i++)
     {
-        cout<<arr[i]<<" ";
-    }
-    cout<<endl;
-}
-
-void selectionSort(int arr[], int size)
-{
-    for(int i = 0; i < size - 1; i++)
-    {
+        stepCount++;
         int min_ind = i;
-        for(int j = i + 1; j < size; j++)
+        for (int j = i + 1; j < size; j++)
         {
-            if(arr[j] < arr[min_ind])
+            stepCount++;
+            if (arr[j] < arr[min_ind])
             {
                 min_ind = j;
             }
         }
         swap(arr[min_ind], arr[i]);
     }
+    return stepCount;
 }
 
-void selectionSortModified(int arr[], int size)
+int selectionSortOptimized(int arr[], int size)
 {
-    for(int i = 0; i < size - 1; i++)
+    int stepCount = 0;
+    for (int i = 0, j = size - 1; i < j; i++, j--)
     {
-        int min_ind = i;
-        for(int j = i + 1; j < size; j++)
+        stepCount++;
+        int min = arr[i], max = arr[i];
+        int min_i = i, max_i = i;
+        for (int k = i; k <= j; k++)
         {
-            if(arr[j] < arr[min_ind])
+            stepCount++;
+            if (arr[k] > max)
             {
-                min_ind = j;
+                max = arr[k];
+                max_i = k;
+            }
+            else if (arr[k] < min)
+            {
+                min = arr[k];
+                min_i = k;
             }
         }
-        swap(arr[min_ind], arr[i]);
+
+        swap(arr[i], arr[min_i]);
+
+        if (arr[min_i] == max)
+            swap(arr[j], arr[min_i]);
+        else
+            swap(arr[j], arr[max_i]);
+    }
+    return stepCount;
+}
+
+void displaySelectionSort()
+{
+    int sl = 0;
+    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
+    for (int n = 100; n <= 1000; n = n + 100)
+    {
+        int arr1[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr1[i] = i+1;
+        }
+        int bestCase = selectionSort(arr1, n);
+        int arr2[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr2[i] = i;
+        }
+        int worstCase = selectionSort(arr2, n);
+        
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
+    }
+}
+
+void displaySelectionSortOptimized()
+{
+    int sl = 0;
+    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
+    for (int n = 100; n <= 1000; n = n + 100)
+    {
+        int arr1[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr1[i] = i+1;
+        }
+        int bestCase = selectionSortOptimized(arr1, n);
+        int arr2[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr2[i] = i;
+        }
+        int worstCase = selectionSortOptimized(arr2, n);
+        
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
     }
 }
 
 int main()
 {
-    int arr[] = {10, 5, 8, 20, 2, 18};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    display(arr, size);
+    cout<<endl<<"Selection Sort: "<<endl;
+    displaySelectionSort();
 
-    selectionSort(arr, size);
-
-    display(arr, size);
+    cout<<endl<<"Optimized Selection Sort: "<<endl;
+    displaySelectionSortOptimized();
 
     return 0;
 }
