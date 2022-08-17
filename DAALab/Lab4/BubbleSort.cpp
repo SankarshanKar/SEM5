@@ -1,9 +1,9 @@
 #include<iostream>
 using namespace std;
 
-void fillArrayRandom(int arr[], int size)
+void fillArrayRandom(int arr[], int size, int seed)
 {
-    srand(time(0));
+    srand(seed);
     for (int i = 0; i < size; i++)
     {
         arr[i] = rand() / 10000000;
@@ -50,23 +50,23 @@ void display(int arr[], int size)
 	cout<<endl;
 }
 
-void printTable(int size)
+void printTable()
 {
-	int arr1[size];
-	int arr2[size];
-
-
 	cout << "Sl No.\t\tBubble Sort\t\tBubble Sort (Optimized)" << endl;
 
 	for(int i = 0; i < 10; i++)
 	{
-		fillArrayRandom(arr1, size);
+		int size = (i + 1) * 1000;
+		int arr1[size];
+		int arr2[size];
+		
+		fillArrayRandom(arr1, size, i + 1);
 		for(int j = 0; j < size; j++)
 		{
 			arr2[j] = arr1[j];
 		}
 		
-		cout << "    " << i << "\t\t\t" << bubbleSort(arr1, size) << "\t\t\t" << bubbleSortOptimized(arr2, size) << endl;
+		cout << "    " << i + 1 << "\t\t\t" << bubbleSort(arr1, size) << "\t\t\t" << bubbleSortOptimized(arr2, size) << endl;
 	}
 
 	cout<<endl;
@@ -74,11 +74,7 @@ void printTable(int size)
 
 int main()
 {
-	int size;
-	cout<<"Enter the size of the array: ";
-	cin>>size;
-
-	printTable(size);
+	printTable();
 
 	return 0; 
 }
