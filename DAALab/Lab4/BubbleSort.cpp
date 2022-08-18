@@ -38,12 +38,18 @@ int bubbleSortOptimized(int arr[], int size)
 	for(int i = 0; i < size; i++)
 	{
 		stepCount++;
+        int flag = 0;
 		for(int j = 0; j < size - i - 1; j++)
 		{
 			stepCount++;
 			if(arr[j] > arr[j + 1])
-				swap(arr[j], arr[j + 1]);
+			{
+                swap(arr[j], arr[j + 1]);
+                flag = 1;
+            }
 		}
+        if (flag == 0)
+            return stepCount;
 	}
 	return stepCount;
 }
