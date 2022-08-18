@@ -37,7 +37,7 @@ void printBubbleSort()
 {
 	int sl = 0;
     cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 100; n <= 1000; n = n + 100)
+    for (int n = 1000; n <= 10000; n = n + 1000)
     {
         int arr1[n];
         for (int i = 0; i < n; i++)
@@ -60,7 +60,7 @@ void printBubbleSortOptimized()
 {
 	int sl = 0;
     cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 100; n <= 1000; n = n + 100)
+    for (int n = 1000; n <= 10000; n = n + 1000)
     {
         int arr1[n];
         for (int i = 0; i < n; i++)
