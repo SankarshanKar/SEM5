@@ -1,6 +1,21 @@
 #include<iostream>
 using namespace std;
 
+void fillArrayBestCase(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = (i + 1);
+    }
+}
+void fillArrayWorstCase(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = (size - i);
+    }
+}
+
 int bubbleSort(int arr[], int size)
 {
 	int stepCount = 0;
@@ -33,59 +48,37 @@ int bubbleSortOptimized(int arr[], int size)
 	return stepCount;
 }
 
-void printBubbleSort()
+void display(int arr[], int size)
 {
-	int sl = 0;
-    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 1000; n <= 10000; n = n + 1000)
+    for(int i = 0; i < size; i++)
     {
-        int arr1[n];
-        for (int i = 0; i < n; i++)
-        {
-            arr1[i] = i+1;
-        }
-        int bestCase = bubbleSort(arr1, n);
-        int arr2[n];
-        for (int i = n; i >=1; i--)
-        {
-            arr2[i] = i;
-        }
-        int worstCase = bubbleSort(arr2, n);
-        
-        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
+        cout<<arr[i]<<" ";
     }
-}
-
-void printBubbleSortOptimized()
-{
-	int sl = 0;
-    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 1000; n <= 10000; n = n + 1000)
-    {
-        int arr1[n];
-        for (int i = 0; i < n; i++)
-        {
-            arr1[i] = i+1;
-        }
-        int bestCase = bubbleSortOptimized(arr1, n);
-        int arr2[n];
-        for (int i = n; i >=1; i--)
-        {
-            arr2[i] = i;
-        }
-        int worstCase = bubbleSortOptimized(arr2, n);
-        
-        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
-    }
+    cout<<endl;
 }
 
 int main()
 {
-	cout<<"Bubble Sort: "<<endl;
-	printBubbleSort();
+	int size;
+    cout<<"Enter size of array: ";
+    cin>>size;
+    int arr[size];
 
-	cout<<"Bubble Sort Optimised: "<<endl;
-	printBubbleSortOptimized();
+    fillArrayBestCase(arr, size);
+    cout<<bubbleSort(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayWorstCase(arr, size);
+    cout<<bubbleSort(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayBestCase(arr, size);
+    cout<<bubbleSortOptimized(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayWorstCase(arr, size);
+    cout<<bubbleSortOptimized(arr, size)<<endl;
+    display(arr, size);
 
 	return 0; 
 }

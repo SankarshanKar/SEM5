@@ -1,6 +1,21 @@
 #include <iostream>
 using namespace std;
 
+void fillArrayBestCase(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = (i + 1);
+    }
+}
+void fillArrayWorstCase(int arr[], int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        arr[i] = (size - i);
+    }
+}
+
 int selectionSort(int arr[], int size)
 {
     int stepCount = 0;
@@ -77,36 +92,37 @@ void displaySelectionSort()
     }
 }
 
-void displaySelectionSortOptimized()
+void display(int arr[], int size)
 {
-    int sl = 0;
-    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 1000; n <= 10000; n = n + 1000)
+    for(int i = 0; i < size; i++)
     {
-        int arr1[n];
-        for (int i = 0; i < n; i++)
-        {
-            arr1[i] = i+1;
-        }
-        int bestCase = selectionSortOptimized(arr1, n);
-        int arr2[n];
-        for (int i = n; i >=1; i--)
-        {
-            arr2[i] = i;
-        }
-        int worstCase = selectionSortOptimized(arr2, n);
-        
-        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
+        cout<<arr[i]<<" ";
     }
+    cout<<endl;
 }
 
 int main()
 {
-    cout<<endl<<"Selection Sort: "<<endl;
-    displaySelectionSort();
+    int size;
+    cout<<"Enter size of array: ";
+    cin>>size;
+    int arr[size];
 
-    cout<<endl<<"Optimized Selection Sort: "<<endl;
-    displaySelectionSortOptimized();
+    fillArrayBestCase(arr, size);
+    cout<<selectionSort(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayWorstCase(arr, size);
+    cout<<selectionSort(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayBestCase(arr, size);
+    cout<<selectionSortOptimized(arr, size)<<endl;
+    display(arr, size);
+
+    fillArrayWorstCase(arr, size);
+    cout<<selectionSortOptimized(arr, size)<<endl;
+    display(arr, size);
 
     return 0;
 }
