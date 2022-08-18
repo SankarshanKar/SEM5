@@ -69,29 +69,6 @@ int selectionSortOptimized(int arr[], int size)
     return stepCount;
 }
 
-void displaySelectionSort()
-{
-    int sl = 0;
-    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)  \n\n";
-    for (int n = 1000; n <= 10000; n = n + 1000)
-    {
-        int arr1[n];
-        for (int i = 0; i < n; i++)
-        {
-            arr1[i] = i+1;
-        }
-        int bestCase = selectionSort(arr1, n);
-        int arr2[n];
-        for (int i = n; i >=1; i--)
-        {
-            arr2[i] = i;
-        }
-        int worstCase = selectionSort(arr2, n);
-        
-        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\n";
-    }
-}
-
 void display(int arr[], int size)
 {
     for(int i = 0; i < size; i++)
