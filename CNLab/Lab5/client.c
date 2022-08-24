@@ -27,8 +27,8 @@ int main()
     their_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
 
     printf("Enter a message\n");
-    scanf("%d", num1);
-    if (numbytes = write(sockfd, &num1, sizeof(num1)) == -1)
+    scanf("%d", &num1);
+    if (numbytes = send(socket, &num1, sizeof(num1), 0) == -1)
     {
         perror("sendto");
         exit(1);

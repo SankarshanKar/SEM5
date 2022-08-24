@@ -33,7 +33,7 @@ int main()
         exit(1);
     }
     addr_len = sizeof their_addr;
-    if ((numbytes = recvfrom(sockfd, num1, MAXBUFLEN - 1, 0, (struct sockaddr *)&their_addr, &addr_len)) == -1)
+    if ((numbytes = recvfrom(sockfd, &num1, sizeof(num1), 0, (struct sockaddr *)&their_addr, &addr_len)) == -1)
     {
         perror("recvfrom");
         exit(1);
