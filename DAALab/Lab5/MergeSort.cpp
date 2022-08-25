@@ -68,7 +68,6 @@ void display(int arr[], int size)
 
 int main()
 {
-    // int arr[] = {10, 15, 20, 11, 30};
     int arr[] = {6, 5, 12, 10, 9, 1};
     int size = sizeof(arr) / sizeof(arr[0]);
 
