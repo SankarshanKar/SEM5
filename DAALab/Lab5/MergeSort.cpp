@@ -1,53 +1,59 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-void mergeSort(int arr[], int low, int mid, int high)
+void merge(int arr[], int low, int mid, int high)
 {
-    int leftIndex = mid - low + 1;
-    int rightIndex = high - mid;
-    int arr1[leftIndex], arr2[rightIndex];
-    
-    
-    for (int i = 0; i < leftIndex; i++)
+    int size1 = mid - low + 1, size2 = high - mid;
+    int left[size1], right[size2];
+
+    for (int i = 0; i < size1; i++)
     {
-        arr1[i] = arr[low + i];
+        left[i] = arr[low + i];
     }
-    
-    for (int i = 0; i < rightIndex; i++)
+    for (int j = 0; j < size2; j++)
     {
-        arr2[i] = arr[leftIndex + i];
+        right[j] = arr[mid + 1 + j];
     }
-    
-    
-    int i = 0, j = 0, k = 0;
-    while (i < leftIndex && j < rightIndex)
+
+    int i = 0, j = 0, k = low;
+
+    while (i < size1 && j < size2)
     {
-        if (arr1[i] <= arr2[j])
+        if (left[i] <= right[j])
         {
-            arr[k] = arr1[i];
-            i++;
+            arr[k] = left[i];
             k++;
+            i++;
         }
         else
         {
-            arr[k] = arr2[j];
-            j++;
+            arr[k] = right[j];
             k++;
+            j++;
         }
     }
-    
-    while (i < leftIndex)
+    while (i < size1)
     {
-        arr[k] = arr1[i];
+        arr[k] = left[i];
+        k++;
         i++;
-        k++;
     }
-    
-    while (j < rightIndex)
+    while (j < size2)
     {
-        arr[k] = arr2[j];
-        j++;
+        arr[k] = right[j];
         k++;
+        j++;
+    }
+}
+
+void mergeSort(int arr[], int low, int high)
+{
+    if (high > low)
+    {
+        int mid = (low + high) / 2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid + 1, high);
+        merge(arr, low, mid, high);
     }
 }
 
@@ -62,14 +68,12 @@ void display(int arr[], int size)
 
 int main()
 {
-    int arr[] = {10, 20, 40, 20, 30};
+    // int arr[] = {10, 15, 20, 11, 30};
+    int arr[] = {6, 5, 12, 10, 9, 1};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int low = 0;
-    int mid = 2;
-    int high = size - 1;
-    display(arr, size);
 
-    mergeSort(arr, low, mid, high);
+    mergeSort(arr, 0, size - 1);
+
     display(arr, size);
 
     return 0;

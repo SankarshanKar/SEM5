@@ -1,261 +1,110 @@
 #include <iostream>
 using namespace std;
 
-// void merge(int arr[], int low, int mid, int high)
-// {
-//     int size1 = mid - low + 1, size2 = high - mid;
-//     int left[size1], right[size2];
-    
-//     for(int i = 0; i < size1; i++)
-//     {
-//         left[i] = arr[low + i];
-//     }
-//     for(int i = 0; i < size2; i++)
-//     {
-//         right[i] = arr[mid + 1 + i];
-//     }
-
-//     int i = 0, j = 0, k = 0;
-    
-//     while(i < size1 && j < size2)
-//     {
-//         if(left[i] <= right[j])
-//         {
-//             arr[k] = left[i];
-//             i++;
-//             k++;
-//         }
-//         else
-//         {
-//             arr[k] = right[j];
-//             j++;
-//             k++;
-//         }
-//     }
-//     while(i < size1)
-//     {
-//         arr[k] = left[i];
-//         i++;
-//         k++;
-//     }
-//     while(j < size2)
-//     {
-//         arr[k] = right[j];
-//         j++;
-//         k++;
-//     }
-// }
-
-void merge(int arr[], int low, int mid, int high)
+void merge(int arr[], int low, int mid, int high, int &count)
 {
-    int leftIndex = mid - low + 1;
-    int rightIndex = high - mid;
-    int arr1[leftIndex], arr2[rightIndex];
-    
-    
-    for (int i = 0; i < leftIndex; i++)
+    int size1 = mid - low + 1, size2 = high - mid;
+    int left[size1], right[size2];
+
+    for (int i = 0; i < size1; i++)
     {
-        arr1[i] = arr[low + i];
+        count++;
+        left[i] = arr[low + i];
     }
-    
-    for (int i = 0; i < rightIndex; i++)
+    for (int j = 0; j < size2; j++)
     {
-        arr2[i] = arr[leftIndex + i];
+        count++;
+        right[j] = arr[mid + 1 + j];
     }
-    
-    
-    int i = 0, j = 0, k = 0;
-    while (i < leftIndex && j < rightIndex)
+
+    int i = 0, j = 0, k = low;
+
+    while (i < size1 && j < size2)
     {
-        if (arr1[i] <= arr2[j])
+        count++;
+        if (left[i] <= right[j])
         {
-            arr[k] = arr1[i];
-            i++;
+            arr[k] = left[i];
             k++;
+            i++;
         }
         else
         {
-            arr[k] = arr2[j];
-            j++;
+            arr[k] = right[j];
             k++;
+            j++;
         }
     }
-    
-    while (i < leftIndex)
+    while (i < size1)
     {
-        arr[k] = arr1[i];
+        count++;
+        arr[k] = left[i];
+        k++;
         i++;
-        k++;
     }
-    
-    while (j < rightIndex)
+    while (j < size2)
     {
-        arr[k] = arr2[j];
-        j++;
+        count++;
+        arr[k] = right[j];
         k++;
+        j++;
     }
 }
 
-// void merge(int arr[], int p, int q, int r)
-// {
-//     int n1 = q - p + 1;
-//     int n2 = r - q;
-//     int L[n1], R[n2];
-//     for (int i = 0; i < n1; i++){
-//         L[i] = arr[p + i];
-//     }
-//     for (int j = 0; j < n2; j++){
-//         R[j] = arr[q + 1 + j];
-//     }
-
-//     int i = 0;
-//     int j = 0;
-//     int k = p;
-//     while (i < n1 && j < n2)
-//     {
-//         if (L[i] < R[j])
-//         {
-//             arr[k++] = L[i++];
-//         }
-//         else
-//         {
-//             arr[k++] = R[j++];
-//         }
-//     }
-
-//     while (i < n1)
-//     {
-//         arr[k++] = L[i++];
-//     }
-//     while (j < n2)
-//     {
-//         arr[k++] = R[j++];
-//     }
-// }
-
-void mergeSort(int arr[], int low, int high)
+int mergeSort(int arr[], int low, int high)
 {
-    if(high > low)
+    int count = 0;
+    if (high > low)
     {
+        count++;
         int mid = (low + high) / 2;
         mergeSort(arr, low, mid);
         mergeSort(arr, mid + 1, high);
-        merge(arr, low, mid, high);
+        merge(arr, low, mid, high, count);
     }
+    return count;
 }
 
-// int mergeSort(int arr[], int p, int r)
-// {
-//     int count=0;
-//     if (p < r)
-//     {
-//         count++;
-//         int q = (p + r) / 2;
-//         mergeSort(arr, p, q);
-//         mergeSort(arr, q + 1, r);
-//         merge(arr, p, q, r);
-//     }
-//     return count;
-// }
-
-void display(int arr[], int size)
+void display()
 {
-    for(int i = 0; i < size; i++)
+    srand(time(0));
+    int sl = 0;
+    cout << "Sl. No \t  Value of n \t TC(Best case)    TC(Worst Case)    TC(Avg Case)  \n\n";
+    for (int n = 1000; n <= 10000; n = n + 1000)
     {
-        cout<<arr[i]<<" ";
+        int arr1[n];
+        for (int i = 0; i < n; i++)
+        {
+            arr1[i] = i+1;
+        }
+        int bestCase = mergeSort(arr1, 0,n);
+        int arr2[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr2[i] = i;
+        }
+        int worstCase = mergeSort(arr2,0, n);
+        int arr3[n];
+        for (int i = n; i >=1; i--)
+        {
+            arr3[i] = rand()%10;
+        }
+        int avgcase=mergeSort(arr3, 0, n);
+
+        
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\t\t\t"<<avgcase<<"\n";
     }
-    cout<<endl;
 }
 
 int main()
 {
-    int arr[] = {10, 15, 20, 11, 30};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    // // int arr[] = {10, 15, 20, 11, 30};
+    // int arr[] = {6, 5, 12, 10, 9, 1};
+    // int size = sizeof(arr) / sizeof(arr[0]);
 
-    mergeSort(arr, 0, size - 1);
+    // mergeSort(arr, 0, size - 1);
 
-    display(arr, size);
+    display();
 
     return 0;
 }
-
-
-// #include <bits/stdc++.h>
-// using namespace std;
-
-// void merge(int arr[], int p, int q, int r, int &count)
-// {
-//     int n1 = q - p + 1;
-//     int n2 = r - q;
-//     int L[n1], R[n2];
-//     for (int i = 0; i < n1; i++){
-//         count++;
-//         L[i] = arr[p + i];
-//     }
-//     for (int j = 0; j < n2; j++){
-//         count++;
-//         R[j] = arr[q + 1 + j];
-//     }
-
-//     int i = 0;
-//     int j = 0;
-//     int k = p;
-//     while (i < n1 && j < n2)
-//     {
-//         count++;
-//         if (L[i] < R[j])
-//         {
-//             arr[k++] = L[i++];
-//         }
-//         else
-//         {
-//             arr[k++] = R[j++];
-//         }
-//     }
-
-//     while (i < n1)
-//     {
-//         count++;
-//         arr[k++] = L[i++];
-//     }
-//     while (j < n2)
-//     {
-//         count++;
-//         arr[k++] = R[j++];
-//     }
-// }
-
-// int mergeSort(int arr[], int p, int r)
-// {
-//     int count=0;
-//     if (p < r)
-//     {
-//         count++;
-//         int q = (p + r) / 2;
-//         mergeSort(arr, p, q);
-//         mergeSort(arr, q + 1, r);
-//         merge(arr, p, q, r,count);
-//     }
-//     return count;
-// }
-
-// void display(int arr[], int size)
-// {
-//     for(int i = 0; i < size; i++)
-//     {
-//         cout<<arr[i]<<" ";
-//     }
-//     cout<<endl;
-// }
-
-// int main()
-// {
-//     int arr[] = {10, 15, 20, 11, 30};
-//     int size = sizeof(arr) / sizeof(arr[0]);
-
-//     mergeSort(arr, 0, 4);
-
-//     display(arr, size);
-
-//     return 0;
-// }
