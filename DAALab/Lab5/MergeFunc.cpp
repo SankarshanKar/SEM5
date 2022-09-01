@@ -92,8 +92,7 @@ void display()
         int avgcase=mergeSort(arr3, 0, n);
 
         
-        // cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\t\t\t"<<avgcase<<"\n";
-        cout <<  worstCase<< "\n";
+        cout << ++sl << " \t " << n << "\t\t" << bestCase<< "\t\t"<< worstCase<< "\t\t\t"<<avgcase<<"\n";
     }
 }
 
