@@ -28,7 +28,7 @@ int main()
     {
         scanf("%d", &arg[i]);
     }
-    if ((numbytes = sendto(sockfd, arg, 10, 0, (struct sockaddr *)&their_addr, sizeof their_addr)) == -1)
+    if ((numbytes = sendto(sockfd, arg, 100, 0, (struct sockaddr *)&their_addr, sizeof their_addr)) == -1)
     {
         perror("sendto");
         exit(1);

@@ -19,6 +19,19 @@ void display(int arr[], int size)
     printf("\n");
 }
 
+int highestNumber(int arr[], int size)
+{
+    int highest = 0;
+    for(int i = 0; i < size; i++)
+    {
+        if(arr[i] > highest)
+        {
+            highest = arr[i];
+        }
+    }
+    return highest;
+}
+
 int main()
 {
     int sockfd;
@@ -41,8 +54,7 @@ int main()
         exit(1);
     }
     addr_len = sizeof their_addr;
-    if ((numbytes = recvfrom(sockfd, buf, MAXBUFLEN - 1, 0,
-                             (struct sockaddr *)&their_addr, &addr_len)) == -1)
+    if ((numbytes = recvfrom(sockfd, buf, MAXBUFLEN - 1, 0, (struct sockaddr *)&their_addr, &addr_len)) == -1)
     {
         perror("recvfrom");
         exit(1);
@@ -50,11 +62,13 @@ int main()
     printf("got packet from %s\n", inet_ntoa(their_addr.sin_addr));
     printf("packet is %d bytes long\n", numbytes);
     // int sum = buf[0] + buf[1];
-    for(int i = 0; i < 10; i++)
-    {
-        printf("%d ", buf[i]);
-    }
-    printf("\n");
+    // for(int i = 0; i < 10; i++)
+    // {
+    //     printf("%d ", buf[i]);
+    // }
+    // printf("\n");
+    display(buf, 10);
+    printf("Highest number is %d\n", highestNumber(buf, 10));
     // printf("Addition of two numbers: \"%d\"\n", sum);
     close(sockfd);
     return 0;
