@@ -61,15 +61,8 @@ int main()
     }
     printf("got packet from %s\n", inet_ntoa(their_addr.sin_addr));
     printf("packet is %d bytes long\n", numbytes);
-    // int sum = buf[0] + buf[1];
-    // for(int i = 0; i < 10; i++)
-    // {
-    //     printf("%d ", buf[i]);
-    // }
-    // printf("\n");
     display(buf, 10);
     printf("Highest number is %d\n", highestNumber(buf, 10));
-    // printf("Addition of two numbers: \"%d\"\n", sum);
     close(sockfd);
     return 0;
 }
