@@ -1,6 +1,3 @@
-/*
-** A datagram "client" demo
-*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,22 +8,20 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-#define SERVERPORT 4952 // the port users will be connecting to
+#define SERVERPORT 4952
 int main()
 {
 int sockfd;
-struct sockaddr_in their_addr; // connector's address information
-//struct hostent *he;
+struct sockaddr_in their_addr;
 int numbytes;
 int arg[10];
 if ((sockfd = socket(AF_INET, SOCK_DGRAM, 0)) == -1) {
 perror("socket");
 exit(1);
 }
-their_addr.sin_family = AF_INET; // host byte order
-their_addr.sin_port = htons(SERVERPORT); // short, network byte order
+their_addr.sin_family = AF_INET;
+their_addr.sin_port = htons(SERVERPORT);
 their_addr.sin_addr.s_addr = inet_addr("127.0.0.1");
-//memset(their_addr.sin_zero, '\0', sizeof their_addr.sin_zero);
 printf("Enter two numbers: \n");
 for(int i=0; i<2; i++){
     scanf("%d", &arg[i]);
