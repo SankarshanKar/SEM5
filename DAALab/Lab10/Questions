@@ -1,0 +1,10 @@
+Q1)For the given graph
+a) WAP to implement BFS algorithm
+b) WAP to implement DFS algorithm
+c) Comment on both their time complexities
+For both of them, your roll mod 10 is your starting point or source.
+Q2)For the given graph
+a) WAP to find MST using Prim’s Algorithm
+b) WAP to find MST using Kruskal’s Algorithm
+c) WAP to find shortest path from the vertex that is your roll mod 10 to vertex 12.
+d) Comment on their time complexities
