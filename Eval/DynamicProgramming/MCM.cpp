@@ -52,7 +52,6 @@ void MatrixChainOrder(int p[], int n)
     cout << "\nOptimal Cost is : " << m[1][n - 1]<<endl;
 }
 
-// Driver Code
 int main()
 {
     int arr[] = {5, 4, 6, 2, 7};

@@ -1,8 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-
 void lcsLength(char *s1, char *s2, int m, int n)
 {
 
