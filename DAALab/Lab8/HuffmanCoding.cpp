@@ -3,7 +3,6 @@ using namespace std;
 
 struct MinHeapNode
 {
-
     char data;
 
     unsigned freq;
@@ -13,7 +12,6 @@ struct MinHeapNode
     MinHeapNode(char data, unsigned freq)
 
     {
-
         left = right = NULL;
         this->data = data;
         this->freq = freq;
@@ -22,9 +20,7 @@ struct MinHeapNode
 
 struct compare
 {
-
     bool operator()(MinHeapNode *l, MinHeapNode *r)
-
     {
         return (l->freq > r->freq);
     }
