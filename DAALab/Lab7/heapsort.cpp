@@ -54,7 +54,6 @@ int parent(int n)
 
 void shiftUp(int arr[], int i)
 {
-
     while (i > 0 && arr[i] > arr[parent(i)])
     {
         swap(arr[i], arr[parent(i)]);
