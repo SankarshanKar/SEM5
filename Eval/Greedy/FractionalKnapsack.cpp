@@ -42,15 +42,24 @@ double fractionalKnapsack(Item arr[], int C, int n)
 
 int main()
 {   
-    struct Item arr[4];
-    arr[0].val = 4;
-    arr[0].weight = 10;
-    arr[1].val = 14;
-    arr[1].weight = 5;
-    arr[2].val = 5;
-    arr[2].weight = 3;
-    arr[3].val = 12;
-    arr[3].weight = 15;
-    int cap = 20;
-    cout<<"MAX profit possible: " <<fractionalKnapsack(arr, cap, 4)<<endl;
+    struct Item arr[3];
+    // arr[0].val = 4;
+    // arr[0].weight = 10;
+    // arr[1].val = 14;
+    // arr[1].weight = 5;
+    // arr[2].val = 5;
+    // arr[2].weight = 3;
+    // arr[3].val = 12;
+    // arr[3].weight = 15;
+    // int cap = 20;
+
+    arr[0].val = 10;
+    arr[0].weight = 60;
+    arr[1].val = 20;
+    arr[1].weight = 100;
+    arr[2].val = 30;
+    arr[2].weight = 120;
+    int cap = 50;
+
+    cout<<"MAX profit possible: " <<fractionalKnapsack(arr, cap, 3)<<endl;
 }
