@@ -22,12 +22,15 @@ double fractionalKnapsack(Item arr[], int C, int n)
     double maxProfit=0.0;
     int currWeight=0;
 
-    for(int i=0; i<n; i++){
-        if(currWeight+arr[i].weight<=C){
+    for(int i=0; i<n; i++)
+    {
+        if(currWeight+arr[i].weight<=C)
+        {
             currWeight+=arr[i].weight;
             maxProfit+=arr[i].val;
         }
-        else{
+        else
+        {
             int remainWeight= C- currWeight;
             maxProfit += (arr[i].val/(double)arr[i].weight) * (double)remainWeight;
             break; //knapsack full
